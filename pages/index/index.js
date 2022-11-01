@@ -107,7 +107,7 @@ delItem(e){
     list:list
   });
 wx.showModal({
-  title:"确认删除吗？",
+  title:"确认要删除吗？",
   success(res){
     if(res.confirm){
     list.splice(indexs,1);
