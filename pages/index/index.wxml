@@ -1,0 +1,69 @@
+<!-- 整体布局 -->
+<view class="container">
+<!-- 1.当前定位城市 -->
+<view class="search-bar" bindtap="clickhide">
+<view class="search_city">{{citySelected}}▾
+</view> 
+<!-- 输入框 -->
+<view class="input-group">
+<input type="text"  placeholder="想去哪儿？"  value="{{inputVal}}" />
+<view class="search-image">
+  <image  class="clear"  src="../../images/search.png" ></image>
+</view>
+</view>
+</view>
+<!-- 2.历史记录 -->
+<view   class="list-history"  style="width:100%" hidden="{{!historyListShow}}">
+<!-- 2.1历史搜索 -->
+<view  class="search-history clearfix" style="width:100%" >历史搜索 <view  class="clear-history" catchtap="clear">清空</view>
+</view>
+<!-- 2.2 历史记录文本-->
+<scroll-view class="history">
+<!-- 2.2.1是否有搜索记录 -->
+<view class="no-data">
+<view> 无搜索记录</view>
+</view>
+<!-- 2.2.2历史搜索记录列表 -->
+<view class=" history-item {{user.isTouchMove?'touch-move-active':''}}" wx:for="{{list}}" wx:for-item="user" wx:key="this" bindtouchstart="touchstart"  bindtouchmove="touchmove"  data-indexs="{{index}}" >
+<!-- 2.2.2.1历史搜索记录细节 -->
+<view class="history-item-wrap">
+ <view class="item-nav">
+   <view class="title">{{user.title}}</view>
+   <view class="address">{{user.address}}</view>
+</view>
+</view>
+<!-- 2.2.2.2历史搜索记录删除 -->
+<view class="history-item-del" bindtap="delItem"  data-indexs="{{index}}">
+<text>删除</text>
+</view>
+</view>
+<!--历史列表结束 -->
+</scroll-view>
+</view>
+<!-- 搜索结果列表 -->
+
+<!-- 城市列表 -->
+<view class="list-city"  hidden="{{!cityListShow}}" >
+<!-- 左边可滑动的城市列表 -->
+<scroll-view scroll-y="true" class="scrollview" scroll-with-animation  scroll-into-view="{{scrollTopId}}" >
+<view class="item">当前定位城市：{{citySelected}}</view>
+<view class="py" id="hot">★热门城市</view>
+<!-- 热门城市循环 -->
+<view class="header-fullname"  >
+<view class="fullname hot-city" wx:for="{{hotCityData}}" wx:key="index">{{item.fullname}}</view>
+</view>
+<!-- 全部城市 -->
+<view class="item1" wx:for="{{cityData}}" wx:key="this"  wx:for-index="idx" wx:for-item="group"  >
+<view class="py1" id="{{idx}}">{{idx}}</view>
+<view class="fullname1" wx:for="{{group}}" wx:key="index"  catchtap="selectCity" data-orgid="{{item.id}}" 
+data-orgname="{{item.name}}" >{{group[index].fullname}}</view>
+</view>
+</scroll-view>
+<!-- 首字母列表 -->
+<view class="city-py" bindtouchstart="tStart" bindtouchend="tEnd"  catchtouchmove="tMove">
+<view wx:for="{{_py}}" wx:key="index"   bindtouchstart="getPy" bindtouchend="setPy"  id="{{item}}" data-letter="{{item}}" >{{item=='hot'?"★":item}}</view>
+</view>
+</view>
+</view>
+<!-- 选择显示 -->
+<view hidden="{{hidden}}" class="showPy">{{showPy=='hot'?"★":showPy}}</view>
