@@ -1,0 +1,1 @@
+<view class="go-top"><uni-icons vue-id="47994fea-1" type="arrow-up" size="30" color="#666" data-event-opts="{{[['^click',[['backTop']]]]}}" bind:click="__e" bind:__l="__l"></uni-icons></view>

@@ -1,0 +1,110 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				//导航条文本
+				"navigationBarTitleText": "首页",
+				//导航条的内容/导航样式，不想要中间的标题，自己写，想要自定义
+				"navigationStyle": "custom"
+			}
+		}
+	    ,{
+            "path" : "pages/search/search",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+					"navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/brands/brands",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "品牌馆"
+				
+              
+            }
+            
+        }
+        ,{
+            "path" : "pages/category/category",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "商品分类"
+            
+            }
+            
+        }
+        ,{
+            "path" : "pages/list/list",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "商品列表",
+                "enablePullDownRefresh": true,
+				//距离触发滚动到页面底部，这个页面剩余的阈值，剩余200px
+				"onReachBottomDistance": 200 
+            }
+            
+        }
+        ,{
+            "path" : "pages/details/details",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "商品详情",
+                "enablePullDownRefresh": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/userCenter/userCenter",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "用户登录",
+				"navigationStyle": "default"
+				
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#0aa1ed",
+		//当前页面下拉刷新后再顶部露出的背景色-仅限于小程序，app和h5用不了
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#999",
+		"selectedColor": "#0aa1ed",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/img/home.png",
+				"selectedIconPath": "static/img/home_active.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/brands/brands",
+				"iconPath": "static/img/brand.png",
+				"selectedIconPath": "static/img/brand_active.png",
+				"text": "品牌馆"
+			},
+			{
+				"pagePath": "pages/category/category",
+				"iconPath": "static/img/category.png",
+				"selectedIconPath": "static/img/category_active.png",
+				"text": "分类"
+			},
+			{
+				"pagePath": "pages/userCenter/userCenter",
+				"iconPath": "static/img/user.png",
+				"selectedIconPath": "static/img/user_active.png",
+				"text": "个人中心"
+			}
+		]
+	},
+	"uniIdRouter": {}
+}

@@ -1,0 +1,1 @@
+<view class="usercenter data-v-b94a2174"><view hidden="{{!(show=='login')}}" class="xzlogin data-v-b94a2174"><xz-login vue-id="6ff90b00-1" class="data-v-b94a2174" bind:__l="__l"></xz-login></view><view hidden="{{!(show=='register')}}" class="xzregister data-v-b94a2174"><xz-register vue-id="6ff90b00-2" class="data-v-b94a2174" bind:__l="__l"></xz-register></view></view>
