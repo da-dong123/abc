@@ -4,14 +4,14 @@
 	<view class="userLogin">
 		<view class="xzlogin">
 			<input class="input1"  value="" v-model="strUser"  placeholder="用户名/邮箱/手机号"  placeholder-class="input-placeholder"
-			 @blur="inputUser"  />
+			 @blur="inputUser"   :focus="strUserFocused" />
 			 <uni-icons type="person-filled"></uni-icons>
 		</view> <!-- xzlogin -->
 
 		 <!-- 密码输入框 -->
 		 <view class="pw" >
 		 	<input class="input2" :password="showPw1" value=""  v-model="strPass" placeholder="请输入密码" placeholder-class="input-placeholder"
-		 	 @blur="inputPass"  >  
+		 	 @blur="inputPass" :focus="strPassFocused"  >  
 			 <view class="icons">
 			 	<uni-icons  class="icon" color="#999" :type="showPw1? 'eye-slash': 'eye-filled' "  @click="showPw1=!showPw1"></uni-icons>
 				<text class="txt1">|</text>
@@ -63,6 +63,8 @@
 				return {
 					strUser:"",
 					strPass:"",
+					strUserFocused:true,
+					strPassFocused:false,
 					showPw1:"true",
 				    isChecked:false
 				}
@@ -97,21 +99,51 @@
 				// // 子组件给父组件传值，目的为了在用户中心页面，来回切换不同的组件；所以用户中心页面只加载一次，所以不能使用uni.$emit，因为uni.$on不知道往哪里放。
 				// 	uni.$emit("getDataFromlogin","register");
 				// },
+				
+				
+				
 			async login(){
+				
+				//1.判断用户是否完成输入了，如果未完成，让对应的输入框获取输入焦点并弹出提示消息
+				//2.提交strUser和strPass到服务器端接口，进行登录验证
+				//3.如果服务器返回登录失败，则弹出提示，否则登录成功，并在客户端保存当前登录用户的信息，再跳转到用户档案
 					let data= {
 						strUser:this.strUser,
 						strPass:this.strPass,
 					}
 					
 					console.log("这是isChecked",this.isChecked);
+					let strUser=this.strUser.trim();
+					 let strPass=this.strPass.trim();
+					this.strPassFocused=false;
+					this.strUserFocused=false;
 					//判断用户名或密码是否为空
-					if(this.strUser==""||this.strPass==""){
+					
+					if(!strUser){
 						uni.showToast({
-									icon: 'none',
-									title: '用户名和密码不能为空！',
-										});
-							return;
+										icon: 'none',
+										title: '用户名不能为空！',
+											});
+							this.strUserFocused=true;
+							this.strPassFocused=false;
+												return;
 					}
+					
+					if(!strPass) {
+						
+							uni.showToast({
+											icon: 'none',
+											title: '密码不能为空！',
+												});
+								this.strUserFocused=false;
+								this.strPassFocused=true;
+													return;					
+						
+					}
+					
+					this.strPassFocused=false;
+					this.strUserFocused=false;
+					
 					//判断勾选框
 					if(this.isChecked==false){
 						console.log(this.isChecked);
@@ -124,34 +156,38 @@
 					
 					
 					//调用接口
-				let result= await login(data);
+				let result= await login(strUser,strPass);
 				console.log("这是登录的接口",result);
 				let loginData=result.data;//{code: 201, msg: 'uname or upwd err'}
-				if( result.statusCode==200){
-					//判断用户名和密码是否正确
-					if(loginData.msg=="uname or upwd err") {
-						uni.showToast({
-									icon: 'none',
-									title: '密码或用户名错误',
-										});
-							return;
-					} 
-					uni.showToast({
-								icon: 'none',
-								title: '登录成功！',
-									});	
-				//存入缓存，若成功					
-				try {
-					uni.setStorageSync('username', data);
-				} catch (e) {
-					// error
-				}
-					//跳转到首页
-					uni.reLaunch({
-						url:'/pages/index/index'
+				if (loginData.code!==200){//登录失败
+					uni.showModal({
+						title:"错误",
+						content:'登录失败！服务器返回错误消息'+loginData.msg,
+						showCancel:false,
 					});
-										
-				}//result.statusCode
+				} else {
+					
+					uni.showModal({
+						title:"欢迎回来",
+						
+					});
+					//存入缓存，若成功
+					try {
+						uni.setStorageSync('username', data);
+					} catch (e) {
+						// error
+					};
+					// //跳转到首页
+					// uni.reLaunch({
+					// 	url:'/pages/index/index'
+					// });
+					//跳转到用户档案页
+					this.$emit('getDataFromlogin','profile')
+								
+					
+				}//if判断
+				
+			
 				},//login
 	
 			},

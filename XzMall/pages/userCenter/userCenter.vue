@@ -9,7 +9,7 @@
 			<XzRegister> </XzRegister>
 		</view>
 		<view class="xzprofile" v-if="show==='profile'  ">
-			<XzUserProfile></XzUserProfile>
+			<XzUserProfile @getDataFromlogin="show=$event"> </XzUserProfile>
 		</view>
 	</view>
 	
