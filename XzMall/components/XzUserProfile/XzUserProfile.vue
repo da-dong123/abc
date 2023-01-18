@@ -11,7 +11,13 @@
 			return {
 				
 			};
-		}
+		},
+		mounted() {
+			console.log("执行了档案页面的挂载");
+			uni.setNavigationBarTitle({
+					title: '用户档案'
+			 	});
+		},
 	}
 </script>
 

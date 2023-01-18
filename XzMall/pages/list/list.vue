@@ -1,6 +1,6 @@
 <template>
 
-		<view class="scroll-Y">
+		<view class="scroll-Y" >
 			
 		
 			<!-- <scroll-view  :scroll-y="true" class="scroll-Y" :show-scrollbar="true"  :style="{height:winHeight+'px'}" > -->
@@ -23,7 +23,7 @@
 						<view class="bottom">
 							<text class="txt">没有更多数据了</text>
 						</view> -->
-						<uni-list>
+						<uni-list  >
 							<uni-list-item class="product-list" 
 							v-for="(item,i) in brandList"
 							 :key="i"  

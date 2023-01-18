@@ -49,9 +49,9 @@
 	<uni-list-item title="个人中心" note=""  clickable  thumb="../../static/img/user_active.png" link="switchTab"  to="/pages/userCenter/userCenter" @click="onClick"></uni-list-item>
 		<uni-list-item title="商品搜索" clickable  note="" thumb="../../static/img/category_active.png" link="navigateTo" to="/pages/search/search" @click="onClick"></uni-list-item>
 		<uni-list-item title="商品列表" clickable  note="" thumb="../../static/img/category_active.png" link="navigateTo" to="/pages/list/list" @click="onClick"></uni-list-item>	
-		<uni-list-item title="登录" clickable  note="" thumb="../../static/img/category_active.png" link="switchTab" to="/pages/userCenter/userCenter?section=login" @click="onClick"></uni-list-item>
-		<uni-list-item title="注册" clickable  note="" thumb="../../static/img/category_active.png" link="switchTab" to="/pages/userCenter/userCenter?section=register" @click="onClick"></uni-list-item>
-		<uni-list-item title="我的" clickable  note="" thumb="../../static/img/category_active.png" link="switchTab" to="/pages/userCenter/userCenter?section=profile" @click="onClick"></uni-list-item>
+		<uni-list-item title="登录" clickable  note="" thumb="../../static/img/category_active.png" link="switchTab" to="/pages/userCenter/userCenter" @click="onClick('login')"></uni-list-item>
+		<uni-list-item title="注册" clickable  note="" thumb="../../static/img/category_active.png" link="switchTab" to="/pages/userCenter/userCenter" @click="onClick('register')"></uni-list-item>
+		<uni-list-item title="我的" clickable  note="" thumb="../../static/img/category_active.png" link="switchTab" to="/pages/userCenter/userCenter" @click="onClick('profile')"></uni-list-item>
    </uni-list>
 		<button @click="$refs.showLeft.close()">关闭drawer</button>
 	</view>
@@ -84,7 +84,10 @@
 					    // console.log("这是drawer组件",this.$refs.showLeft);//等同于this.$refs[e]
 						},
 			onClick(e){
-				console.log('执行click事件', e.data);
+				console.log('即将跳转到某个页面', e);
+				
+				 uni.setStorageSync("userCenterSection",e);            
+			
 			},
 			toSearchList(){
 				uni.navigateTo({

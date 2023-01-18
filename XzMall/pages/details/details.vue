@@ -53,6 +53,7 @@
 	<!-- 4.为你推荐 -->
 	<view class="recommendation">
 		<text class="txt">为您推荐</text>
+		<!-- 提醒：滚动试图内，必须有一个容器父元素，并且给其宽度，其中包含多个子元素，否则弹性容器不起作用 -->
 		<scroll-view class="scroll-view_H" scroll-x="true"  >
 						<view class="item"  v-for="(item,i) in picList" :key="i"    >
 							<image  class="img" :src="$base+item.sm" mode="widthFix"   
@@ -71,12 +72,15 @@
 	</view><!-- recommendation -->
 	<!--5. 商品详情 -->
 	<view class="details">
-		<text class="txt">商品详情</text>
+		<!-- <text class="txt">商品详情</text>
 		<view class="detail_img">
 			<image class="img1" src="https://web.codeboy.com/xuezi/img/product/detail/58d87221Na033954c.jpg" mode="widthFix"></image>
 			<image class="img2" src="https://web.codeboy.com/xuezi/img/product/detail/58e5e4b5N862f8aa1.jpg" mode="widthFix"></image>
 			<image  class="img3" src="https://web.codeboy.com/xuezi/img/product/detail/57bfa672N20953b71.jpg" mode="widthFix"></image>
-		</view>
+		</view> -->
+		<uni-card title="商品详情" >
+			<rich-text :nodes="product.details" class="img"></rich-text>
+		</uni-card>
 	</view>
 	</view>
 </template>
@@ -124,7 +128,7 @@ import { productDetails,base } from '../../service';
 				this.picList={...this.product.picList};
 			},
 			changeValue(e){
-				console.log(e);
+				console.log("这是数量",e);
 			},
 			toDetail(e){
 				
@@ -150,6 +154,7 @@ import { productDetails,base } from '../../service';
 			
 		},
 	async onLoad(option) {
+		
 			console.log("这是从某个页面传过来的数据",option);
 			//如果从首页或者列表页跳转过来，没有带option即option不存在，则销毁当前页跳转到列表页，当然在实际情形是不存在的，只是在测试阶段。
 			if(JSON.stringify(option)==='{}'){
@@ -182,6 +187,12 @@ import { productDetails,base } from '../../service';
 		this.family={...family};//商品型号信息
 		this.picList=[...product.picList];
 		console.log("产品",this.product);
+		// 对服务器返回的数据进行预处理，因为details中src没有基础路径，所以要替换成有$base
+		// 1.把this.products.details中的src="img"替换为src="https:web.codebody.com/xuezi/img"
+		this.product.details=this.product.details.replace(/src="img/g,`src="${this.$base}img`);
+		//2.把this.product.details中的<img替换为<img style="width:100%"
+		this.product.details=this.product.details.replace(/<img/g,'<img style="width:100%;"'  );
+		
 		//面包屑标题
 		this.itemName=family.fname;
 		//更新标题
@@ -311,8 +322,8 @@ import { productDetails,base } from '../../service';
 		width: 100%;
 	
 			.scroll-view_H {
-			
-			     height: 150px;
+			     width: 100%;
+			     // height: 150px;
 				white-space: nowrap;
 				.item {
 					width:30%;
@@ -342,26 +353,11 @@ import { productDetails,base } from '../../service';
 		
 	} //recommendation
 	.details{
-		.txt {
-			display: block;
-			border-top: $uni-border-style  $uni-border-color $uni-border-width;
-			border-bottom: $uni-border-style  $uni-border-color $uni-border-width;
-			padding:   $uni-spacing-col-base  $uni-spacing-row-base ;
-			font-size: $uni-font-size-base;
-		}
-		.detail_img {
-			text-align: center;
-			margin-top: $uni-spacing-col-base;
-			.img1{
-				// height: 3500px;
-			}
-			.img2 {
-				
-			}
-			.img3 {
-				
-			}
-		}
-	}
+		// width: 100%;
+		// .img {
+		// 	width: 100%;
+		// }
+		
+	}//details
  }
 </style>

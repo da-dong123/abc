@@ -88,7 +88,7 @@ import { register } from '../../service';
 								errorMessage:"邮箱不合法！",
 							},
 							],
-							},
+							},  //email
 							
 							
 							// {
@@ -136,9 +136,9 @@ import { register } from '../../service';
 				},//roules
 				
 				
-				}
-					},
-					
+				} //return
+					}, //data
+	
 			methods:{
 			async clickrRegister(){
 					this.$refs.form.validate().then( async (res)=>{
@@ -176,6 +176,13 @@ import { register } from '../../service';
 						return
 					})
 				}, //clickrRegister
+			},
+			
+			mounted() {
+				console.log("执行了注册页面的挂载");
+				uni.setNavigationBarTitle({
+						title: '用户注册'
+				 	});
 			},
 
 		onReady() {
