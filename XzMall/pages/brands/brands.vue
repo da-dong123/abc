@@ -15,12 +15,13 @@
 </template>
 
 <script>
-import { productBrand } from '../../service';
+import { productBrand,base } from '../../service';
 	
 	export default {
 		data() {
 			return {
 				branList:[],
+				$base:base,
 			}
 		},
 		methods: {

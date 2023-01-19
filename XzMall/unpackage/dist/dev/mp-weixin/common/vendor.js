@@ -762,7 +762,7 @@ function populateParameters(result) {var _result$brand =
 
   var parameters = {
     appId: "__UNI__4E9001F",
-    appName: "XzMall",
+    appName: "漫书屋",
     appVersion: "1.0.0",
     appVersionCode: "100",
     appLanguage: getAppLanguage(hostLanguage),
@@ -871,7 +871,7 @@ var getAppBaseInfo = {
 
     result = sortObject(Object.assign(result, {
       appId: "__UNI__4E9001F",
-      appName: "XzMall",
+      appName: "漫书屋",
       appVersion: "1.0.0",
       appVersionCode: "100",
       appLanguage: getAppLanguage(hostLanguage),
@@ -1464,7 +1464,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_NAME":"XzMall","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"漫书屋","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -2670,9 +2670,9 @@ function normalizeComponent (
 /***/ }),
 
 /***/ 12:
-/*!*********************************************************************!*\
-  !*** C:/Users/12722/Desktop/test/testday01/XzMall/service/index.js ***!
-  \*********************************************************************/
+/*!**************************************************!*\
+  !*** E:/spHBuilder/abcd/XzMall/service/index.js ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2832,7 +2832,10 @@ var userBasic = /*#__PURE__*/function () {var _ref9 = _asyncToGenerator( /*#__PU
               title: '获取加载中' });_context8.next = 4;return (
 
               uni.request({
-                url: url }));case 4:_yield$uni$request13 = _context8.sent;_yield$uni$request14 = _slicedToArray(_yield$uni$request13, 2);err = _yield$uni$request14[0];res = _yield$uni$request14[1];
+                url: url,
+                header: { //修改请求消息的头部
+                  authorization: uni.getStorageSync("userToken") //客户端提交给服务器的身份认证信息
+                } }));case 4:_yield$uni$request13 = _context8.sent;_yield$uni$request14 = _slicedToArray(_yield$uni$request13, 2);err = _yield$uni$request14[0];res = _yield$uni$request14[1];
 
 
             uni.hideLoading();return _context8.abrupt("return",
@@ -2850,7 +2853,10 @@ exports.userBasic = userBasic;var userLogout = /*#__PURE__*/function () {var _re
               title: '退出中' });_context9.next = 4;return (
 
               uni.request({
-                url: url }));case 4:_yield$uni$request15 = _context9.sent;_yield$uni$request16 = _slicedToArray(_yield$uni$request15, 2);err = _yield$uni$request16[0];res = _yield$uni$request16[1];
+                url: url,
+                header: { //修改请求消息的头部
+                  authorization: uni.getStorageSync("userToken") //客户端提交给服务器的身份认证信息
+                } }));case 4:_yield$uni$request15 = _context9.sent;_yield$uni$request16 = _slicedToArray(_yield$uni$request15, 2);err = _yield$uni$request16[0];res = _yield$uni$request16[1];
 
 
             uni.hideLoading();return _context9.abrupt("return",
@@ -2964,9 +2970,9 @@ var cartUpdatacheck = /*#__PURE__*/function () {var _ref15 = _asyncToGenerator( 
 /***/ }),
 
 /***/ 125:
-/*!***********************************************************************************************************************!*\
-  !*** C:/Users/12722/Desktop/test/testday01/XzMall/uni_modules/uni-search-bar/components/uni-search-bar/i18n/index.js ***!
-  \***********************************************************************************************************************/
+/*!****************************************************************************************************!*\
+  !*** E:/spHBuilder/abcd/XzMall/uni_modules/uni-search-bar/components/uni-search-bar/i18n/index.js ***!
+  \****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2982,9 +2988,9 @@ var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 1
 /***/ }),
 
 /***/ 126:
-/*!**********************************************************************************************************************!*\
-  !*** C:/Users/12722/Desktop/test/testday01/XzMall/uni_modules/uni-search-bar/components/uni-search-bar/i18n/en.json ***!
-  \**********************************************************************************************************************/
+/*!***************************************************************************************************!*\
+  !*** E:/spHBuilder/abcd/XzMall/uni_modules/uni-search-bar/components/uni-search-bar/i18n/en.json ***!
+  \***************************************************************************************************/
 /*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
 /***/ (function(module) {
 
@@ -2993,9 +2999,9 @@ module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-
 /***/ }),
 
 /***/ 127:
-/*!***************************************************************************************************************************!*\
-  !*** C:/Users/12722/Desktop/test/testday01/XzMall/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hans.json ***!
-  \***************************************************************************************************************************/
+/*!********************************************************************************************************!*\
+  !*** E:/spHBuilder/abcd/XzMall/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hans.json ***!
+  \********************************************************************************************************/
 /*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
 /***/ (function(module) {
 
@@ -3004,9 +3010,9 @@ module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-
 /***/ }),
 
 /***/ 128:
-/*!***************************************************************************************************************************!*\
-  !*** C:/Users/12722/Desktop/test/testday01/XzMall/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hant.json ***!
-  \***************************************************************************************************************************/
+/*!********************************************************************************************************!*\
+  !*** E:/spHBuilder/abcd/XzMall/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hant.json ***!
+  \********************************************************************************************************/
 /*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
 /***/ (function(module) {
 
@@ -3806,9 +3812,9 @@ if (hadRuntime) {
 /***/ }),
 
 /***/ 171:
-/*!*********************************************************************************************************************!*\
-  !*** C:/Users/12722/Desktop/test/testday01/XzMall/uni_modules/uni-load-more/components/uni-load-more/i18n/index.js ***!
-  \*********************************************************************************************************************/
+/*!**************************************************************************************************!*\
+  !*** E:/spHBuilder/abcd/XzMall/uni_modules/uni-load-more/components/uni-load-more/i18n/index.js ***!
+  \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3824,9 +3830,9 @@ var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 1
 /***/ }),
 
 /***/ 172:
-/*!********************************************************************************************************************!*\
-  !*** C:/Users/12722/Desktop/test/testday01/XzMall/uni_modules/uni-load-more/components/uni-load-more/i18n/en.json ***!
-  \********************************************************************************************************************/
+/*!*************************************************************************************************!*\
+  !*** E:/spHBuilder/abcd/XzMall/uni_modules/uni-load-more/components/uni-load-more/i18n/en.json ***!
+  \*************************************************************************************************/
 /*! exports provided: uni-load-more.contentdown, uni-load-more.contentrefresh, uni-load-more.contentnomore, default */
 /***/ (function(module) {
 
@@ -3835,9 +3841,9 @@ module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"Pull up to show mo
 /***/ }),
 
 /***/ 173:
-/*!*************************************************************************************************************************!*\
-  !*** C:/Users/12722/Desktop/test/testday01/XzMall/uni_modules/uni-load-more/components/uni-load-more/i18n/zh-Hans.json ***!
-  \*************************************************************************************************************************/
+/*!******************************************************************************************************!*\
+  !*** E:/spHBuilder/abcd/XzMall/uni_modules/uni-load-more/components/uni-load-more/i18n/zh-Hans.json ***!
+  \******************************************************************************************************/
 /*! exports provided: uni-load-more.contentdown, uni-load-more.contentrefresh, uni-load-more.contentnomore, default */
 /***/ (function(module) {
 
@@ -3846,13 +3852,153 @@ module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"上拉显示更多
 /***/ }),
 
 /***/ 174:
-/*!*************************************************************************************************************************!*\
-  !*** C:/Users/12722/Desktop/test/testday01/XzMall/uni_modules/uni-load-more/components/uni-load-more/i18n/zh-Hant.json ***!
-  \*************************************************************************************************************************/
+/*!******************************************************************************************************!*\
+  !*** E:/spHBuilder/abcd/XzMall/uni_modules/uni-load-more/components/uni-load-more/i18n/zh-Hant.json ***!
+  \******************************************************************************************************/
 /*! exports provided: uni-load-more.contentdown, uni-load-more.contentrefresh, uni-load-more.contentnomore, default */
 /***/ (function(module) {
 
 module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"上拉顯示更多\",\"uni-load-more.contentrefresh\":\"正在加載...\",\"uni-load-more.contentnomore\":\"沒有更多數據了\"}");
+
+/***/ }),
+
+/***/ 196:
+/*!*********************************************************************************************************!*\
+  !*** E:/spHBuilder/abcd/XzMall/uni_modules/uni-transition/components/uni-transition/createAnimation.js ***!
+  \*********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.createAnimation = createAnimation;function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;} // const defaultOption = {
+// 	duration: 300,
+// 	timingFunction: 'linear',
+// 	delay: 0,
+// 	transformOrigin: '50% 50% 0'
+// }
+var
+
+
+MPAnimation = /*#__PURE__*/function () {
+  function MPAnimation(options, _this) {_classCallCheck(this, MPAnimation);
+    this.options = options;
+    this.animation = uni.createAnimation(options);
+    this.currentStepAnimates = {};
+    this.next = 0;
+    this.$ = _this;
+
+  }_createClass(MPAnimation, [{ key: "_nvuePushAnimates", value: function _nvuePushAnimates(
+
+    type, args) {
+      var aniObj = this.currentStepAnimates[this.next];
+      var styles = {};
+      if (!aniObj) {
+        styles = {
+          styles: {},
+          config: {} };
+
+      } else {
+        styles = aniObj;
+      }
+      if (animateTypes1.includes(type)) {
+        if (!styles.styles.transform) {
+          styles.styles.transform = '';
+        }
+        var unit = '';
+        if (type === 'rotate') {
+          unit = 'deg';
+        }
+        styles.styles.transform += "".concat(type, "(").concat(args + unit, ") ");
+      } else {
+        styles.styles[type] = "".concat(args);
+      }
+      this.currentStepAnimates[this.next] = styles;
+    } }, { key: "_animateRun", value: function _animateRun()
+    {var styles = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var ref = this.$.$refs['ani'].ref;
+      if (!ref) return;
+      return new Promise(function (resolve, reject) {
+        nvueAnimation.transition(ref, _objectSpread({
+          styles: styles },
+        config),
+        function (res) {
+          resolve();
+        });
+      });
+    } }, { key: "_nvueNextAnimate", value: function _nvueNextAnimate(
+
+    animates) {var _this2 = this;var step = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;var fn = arguments.length > 2 ? arguments[2] : undefined;
+      var obj = animates[step];
+      if (obj) {var
+
+        styles =
+
+        obj.styles,config = obj.config;
+        this._animateRun(styles, config).then(function () {
+          step += 1;
+          _this2._nvueNextAnimate(animates, step, fn);
+        });
+      } else {
+        this.currentStepAnimates = {};
+        typeof fn === 'function' && fn();
+        this.isEnd = true;
+      }
+    } }, { key: "step", value: function step()
+
+    {var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+      this.animation.step(config);
+
+
+
+
+
+
+      return this;
+    } }, { key: "run", value: function run(
+
+    fn) {
+
+      this.$.animationData = this.animation.export();
+      this.$.timer = setTimeout(function () {
+        typeof fn === 'function' && fn();
+      }, this.$.durationTime);
+
+
+
+
+
+
+
+
+    } }]);return MPAnimation;}();
+
+
+
+var animateTypes1 = ['matrix', 'matrix3d', 'rotate', 'rotate3d', 'rotateX', 'rotateY', 'rotateZ', 'scale', 'scale3d',
+'scaleX', 'scaleY', 'scaleZ', 'skew', 'skewX', 'skewY', 'translate', 'translate3d', 'translateX', 'translateY',
+'translateZ'];
+
+var animateTypes2 = ['opacity', 'backgroundColor'];
+var animateTypes3 = ['width', 'height', 'left', 'right', 'top', 'bottom'];
+animateTypes1.concat(animateTypes2, animateTypes3).forEach(function (type) {
+  MPAnimation.prototype[type] = function () {var _this$animation;
+
+    (_this$animation = this.animation)[type].apply(_this$animation, arguments);
+
+
+
+
+    return this;
+  };
+});
+
+function createAnimation(option, _this) {
+  if (!_this) return;
+  clearTimeout(_this.timer);
+  return new MPAnimation(option, _this);
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
@@ -3887,10 +4033,10 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 208:
-/*!***********************************************************************************************************!*\
-  !*** C:/Users/12722/Desktop/test/testday01/XzMall/uni_modules/uni-forms/components/uni-forms/validate.js ***!
-  \***********************************************************************************************************/
+/***/ 223:
+/*!****************************************************************************************!*\
+  !*** E:/spHBuilder/abcd/XzMall/uni_modules/uni-forms/components/uni-forms/validate.js ***!
+  \****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4384,10 +4530,10 @@ SchemaValidator;exports.default = _default;
 
 /***/ }),
 
-/***/ 209:
-/*!********************************************************************************************************!*\
-  !*** C:/Users/12722/Desktop/test/testday01/XzMall/uni_modules/uni-forms/components/uni-forms/utils.js ***!
-  \********************************************************************************************************/
+/***/ 224:
+/*!*************************************************************************************!*\
+  !*** E:/spHBuilder/abcd/XzMall/uni_modules/uni-forms/components/uni-forms/utils.js ***!
+  \*************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10678,7 +10824,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_NAME":"XzMall","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_NAME":"漫书屋","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -10699,14 +10845,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_NAME":"XzMall","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"漫书屋","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_NAME":"XzMall","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"漫书屋","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -10792,7 +10938,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_NAME":"XzMall","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"漫书屋","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -11207,9 +11353,9 @@ internalMixin(Vue);
 /***/ }),
 
 /***/ 5:
-/*!***************************************************************!*\
-  !*** C:/Users/12722/Desktop/test/testday01/XzMall/pages.json ***!
-  \***************************************************************/
+/*!********************************************!*\
+  !*** E:/spHBuilder/abcd/XzMall/pages.json ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -11218,9 +11364,9 @@ internalMixin(Vue);
 /***/ }),
 
 /***/ 75:
-/*!********************************************************************************************************!*\
-  !*** C:/Users/12722/Desktop/test/testday01/XzMall/uni_modules/uni-icons/components/uni-icons/icons.js ***!
-  \********************************************************************************************************/
+/*!*************************************************************************************!*\
+  !*** E:/spHBuilder/abcd/XzMall/uni_modules/uni-icons/components/uni-icons/icons.js ***!
+  \*************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

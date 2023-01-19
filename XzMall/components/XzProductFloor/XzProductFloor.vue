@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { productDetails } from '../../service';
+import { productDetails,base } from '../../service';
 	
 	export default {
 		name:"XzProductFloor",
@@ -50,7 +50,7 @@ import { productDetails } from '../../service';
 		},
 		data() {
 			return {
-			
+			 $base:base
 			}
 		},
 		methods:{

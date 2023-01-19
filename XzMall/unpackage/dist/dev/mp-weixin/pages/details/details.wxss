@@ -121,7 +121,7 @@
   width: 100%;
 }
 .productDetail .recommendation .scroll-view_H.data-v-39cbb4e8 {
-  height: 150px;
+  width: 100%;
   white-space: nowrap;
 }
 .productDetail .recommendation .scroll-view_H .item.data-v-39cbb4e8 {
@@ -142,16 +142,5 @@
   border-bottom: solid #c8c7cc 1px;
   padding: 8px 10px;
   font-size: 14px;
-}
-.productDetail .details .txt.data-v-39cbb4e8 {
-  display: block;
-  border-top: solid #c8c7cc 1px;
-  border-bottom: solid #c8c7cc 1px;
-  padding: 8px 10px;
-  font-size: 14px;
-}
-.productDetail .details .detail_img.data-v-39cbb4e8 {
-  text-align: center;
-  margin-top: 8px;
 }
 

@@ -1,0 +1,1 @@
+<view class="profile"><uni-card vue-id="008a4c48-1" title="我的档案" thumbnail bind:__l="__l" vue-slots="{{['default']}}"><text>{{userInfo}}</text><button type="primary" data-event-opts="{{[['tap',[['doLogout',['$event']]]]]}}" bindtap="__e">退出登录</button></uni-card></view>

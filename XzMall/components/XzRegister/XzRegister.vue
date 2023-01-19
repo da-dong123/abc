@@ -197,6 +197,9 @@ import { register } from '../../service';
 	}
 </script>
 
-<style>
-
+<style lang="scss">
+.userRegister {
+	position: absolute;	
+	width: 750rpx;
+}
 </style>

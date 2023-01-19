@@ -1,16 +1,21 @@
 <template>
 	
 	<view class="usercenter">
-		<view class="xzlogin" v-if="show==='login'  ">
+		<uni-transition mode-class="slide-left"   :show="show==='login'" > 	
 			<XzLogin @getDataFromlogin="show=$event"  ></XzLogin>
-		</view>
+	</uni-transition>
 		
-		<view class="xzregister" v-if="show==='register'  ">
-			<XzRegister  @getDataFromlogin="show=$event"> </XzRegister>
-		</view>
-		<view class="xzprofile" v-if="show==='profile'  ">
-			<XzUserProfile @getDataFromlogin="show=$event"> </XzUserProfile>
-		</view>
+		<uni-transition mode-class="slide-right" :show="show==='register'" > 
+		<XzRegister  @getDataFromlogin="show=$event"> </XzRegister>
+		</uni-transition>
+		
+			
+		
+		<uni-transition mode-class="fade" :show="show==='profile'" >
+		<XzUserProfile @getDataFromlogin="show=$event"> </XzUserProfile>
+		</uni-transition>
+		
+	
 	</view>
 	
 	

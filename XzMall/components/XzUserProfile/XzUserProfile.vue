@@ -1,6 +1,6 @@
 <template>
-	<view>
-		<uni-card title="我的档案" thumbnail="" extra="额外信息" note="Tips">
+	<view class="profile">
+		<uni-card title="我的档案" thumbnail="" >
 			<text>{{userInfo}}</text>
 			<!-- F1:用户头像uImage -->
 			<!-- F2:用户头像 uList -->
@@ -44,6 +44,9 @@ import { userBasic,userLogout } from '../../service';
 	}
 </script>
 
-<style>
-
+<style lang="scss">
+.profile {
+	position: absolute;	
+	width: 750rpx;
+}
 </style>

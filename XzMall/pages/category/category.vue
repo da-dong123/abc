@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { productcategory,productList } from '../../service'
+import { productcategory,productList,base } from '../../service'
 	
 	export default {
 		data() {
@@ -42,6 +42,7 @@ import { productcategory,productList } from '../../service'
 			   rightList:[],
 			   winHeight:0,
 			   curCategory:0,
+			   $base:base,
 			}
 		},
 		watch:{

@@ -1,0 +1,1 @@
+.go-top{position:fixed;top:900rpx;right:10px;background-color:#f8f8f8;border-radius:50%;border:1px solid #c8c7cc;opacity:.7;width:80rpx;height:80rpx;display:flex;flex-direction:column;justify-content:center;text-align:center}.go-top:active{opacity:1}

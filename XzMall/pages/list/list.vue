@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import { productList } from '@/service';
+import { productList,base } from '@/service';
 
 	export default {
 		data() {
@@ -66,6 +66,7 @@ import { productList } from '@/service';
 				kw:"",
 				isLoading:false,//当前正在加载中吗？必须上一次加载完成再进行下一次
 				status:"",
+				$base:base,
 			}
 		},
 		methods: {

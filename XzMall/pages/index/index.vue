@@ -62,7 +62,7 @@
 <script>
 	
 	// 导入数据API的二次封装模块
-	import {productList,productDetails,productIndex,login,userBasic} from '@/service/index.js'
+	import {productList,productDetails,productIndex,login,userBasic,base} from '@/service/index.js'
 	
 	export default {
 		data(){
@@ -73,6 +73,7 @@
 				recommendedItems:[],//首页推荐条目
 				topSaleItems:[],//热销单品条目
 				token:"",
+				$base:base,
 				
 				 
 			}

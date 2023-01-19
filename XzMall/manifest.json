@@ -1,5 +1,5 @@
 {
-    "name" : "XzMall",
+    "name" : "漫书屋",
     "appid" : "__UNI__4E9001F",
     "description" : "",
     "versionName" : "1.0.0",
@@ -60,7 +60,7 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "",
+        "appid" : "wxb6e225305300ba3a",
         "setting" : {
             "urlCheck" : false
         },

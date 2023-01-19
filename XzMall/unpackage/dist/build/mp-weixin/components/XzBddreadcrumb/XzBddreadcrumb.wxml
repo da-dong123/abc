@@ -1,0 +1,1 @@
+<view class="breadcrumb"><block wx:for="{{list}}" wx:for-item="item" wx:for-index="i" wx:key="i"><view class="path"><navigator url="{{item.href}}" open-type="{{item.openType}}">{{item.pathName}}</navigator><block wx:if="{{i<list.length-1}}"><text class="separator">{{separator}}</text></block></view></block></view>

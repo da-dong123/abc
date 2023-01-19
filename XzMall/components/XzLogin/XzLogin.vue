@@ -196,7 +196,8 @@
 
 <style lang="scss" scoped>
 .loginUser{
-		
+	position: absolute;	
+	width: 750rpx;
 .userLogin {
 	padding:$uni-spacing-col-lg*3;
 	.xzlogin {

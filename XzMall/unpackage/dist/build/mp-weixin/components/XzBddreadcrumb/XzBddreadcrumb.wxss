@@ -1,0 +1,1 @@
+.breadcrumb{padding:8px 10px;display:flex}.breadcrumb .path{display:flex}.breadcrumb .path .separator{margin:0 5px}

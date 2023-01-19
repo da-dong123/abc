@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import { productList } from '../../service'
+import { productList,base } from '../../service'
 
 	export default {
 		data() {
@@ -55,6 +55,7 @@ import { productList } from '../../service'
 			strValue:"",
 			kw:"",
 			timer:null,//输入防抖定时器
+			$base:base,
 			}
 		},
 		methods: {
