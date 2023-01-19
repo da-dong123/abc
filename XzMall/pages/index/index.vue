@@ -49,8 +49,8 @@
 	<uni-list-item title="个人中心" note=""  clickable  thumb="../../static/img/user_active.png" link="switchTab"  to="/pages/userCenter/userCenter" @click="onClick"></uni-list-item>
 		<uni-list-item title="商品搜索" clickable  note="" thumb="../../static/img/category_active.png" link="navigateTo" to="/pages/search/search" @click="onClick"></uni-list-item>
 		<uni-list-item title="商品列表" clickable  note="" thumb="../../static/img/category_active.png" link="navigateTo" to="/pages/list/list" @click="onClick"></uni-list-item>	
-		<uni-list-item title="登录" clickable  note="" thumb="../../static/img/category_active.png" link="switchTab" to="/pages/userCenter/userCenter" @click="onClick('login')"></uni-list-item>
-		<uni-list-item title="注册" clickable  note="" thumb="../../static/img/category_active.png" link="switchTab" to="/pages/userCenter/userCenter" @click="onClick('register')"></uni-list-item>
+		<uni-list-item  v-if="!token" title="登录" clickable  note="" thumb="../../static/img/category_active.png" link="switchTab" to="/pages/userCenter/userCenter" @click="onClick('login')"></uni-list-item>
+		<uni-list-item  v-if="!token" title="注册" clickable  note="" thumb="../../static/img/category_active.png" link="switchTab" to="/pages/userCenter/userCenter" @click="onClick('register')"></uni-list-item>
 		<uni-list-item title="我的" clickable  note="" thumb="../../static/img/category_active.png" link="switchTab" to="/pages/userCenter/userCenter" @click="onClick('profile')"></uni-list-item>
    </uni-list>
 		<button @click="$refs.showLeft.close()">关闭drawer</button>
@@ -72,6 +72,7 @@
 				newArrivalItems:[],//新品上市条目
 				recommendedItems:[],//首页推荐条目
 				topSaleItems:[],//热销单品条目
+				token:"",
 				
 				 
 			}
@@ -115,7 +116,10 @@
 			
 
 
-	}
+	},
+	onShow() {
+		this.token=uni.getStorageSync("userToken");
+	},
 	   }
 	
 	

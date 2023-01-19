@@ -107,10 +107,10 @@
 				//1.判断用户是否完成输入了，如果未完成，让对应的输入框获取输入焦点并弹出提示消息
 				//2.提交strUser和strPass到服务器端接口，进行登录验证
 				//3.如果服务器返回登录失败，则弹出提示，否则登录成功，并在客户端保存当前登录用户的信息，再跳转到用户档案
-					let data= {
-						strUser:this.strUser,
-						strPass:this.strPass,
-					}
+					// let data= {
+					// 	strUser:this.strUser,
+					// 	strPass:this.strPass,
+					// }
 					
 					console.log("这是isChecked",this.isChecked);
 					let strUser=this.strUser.trim();
@@ -171,9 +171,9 @@
 						title:"欢迎回来",
 						
 					});
-					//存入缓存，若成功
+					//在客户端保存当前登录的身份信息-token令牌,我是谁我的编号是谁，服务器返回给客户端的。必须保存
 					try {
-						uni.setStorageSync('username', data);
+						uni.setStorageSync('userToken',loginData.token );
 					} catch (e) {
 						// error
 					};

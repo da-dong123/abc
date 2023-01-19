@@ -18,6 +18,7 @@
 	</uni-forms-item>
 	<button type="primary"  @click="clickrRegister" >立即注册</button>
 </uni-forms>
+<view @click="goToLogin"> 以后账号？请登录</view>  
 		 </view>
 </template>
 
@@ -176,6 +177,10 @@ import { register } from '../../service';
 						return
 					})
 				}, //clickrRegister
+				
+				  goToLogin(){
+					this.$emit("getDataFromlogin","login");
+				  }
 			},
 			
 			mounted() {

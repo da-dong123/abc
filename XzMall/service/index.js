@@ -154,6 +154,9 @@ console.log("这是商品列表 result[1].data",result[1].data);
 	  	 					});
 	  	let [err,res] =  await uni.request({
 	  		url,
+			header:{//修改请求消息的头部
+				authorization: uni.getStorageSync("userToken"),//客户端提交给服务器的身份认证信息
+			},
 	  			  		
 	  	});	
 	  	uni.hideLoading();
@@ -172,6 +175,9 @@ console.log("这是商品列表 result[1].data",result[1].data);
 		    					});
 		   let [err,res] =  await uni.request({
 		   	url,
+			header:{//修改请求消息的头部
+				authorization: uni.getStorageSync("userToken"),//客户端提交给服务器的身份认证信息
+			},
 		   		  		
 		   });	
 		   uni.hideLoading();

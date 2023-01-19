@@ -6,7 +6,7 @@
 		</view>
 		
 		<view class="xzregister" v-if="show==='register'  ">
-			<XzRegister> </XzRegister>
+			<XzRegister  @getDataFromlogin="show=$event"> </XzRegister>
 		</view>
 		<view class="xzprofile" v-if="show==='profile'  ">
 			<XzUserProfile @getDataFromlogin="show=$event"> </XzUserProfile>
@@ -33,8 +33,22 @@
 		onShow() {
 			//有页签,页签只加载一次，页签之间的切换
 			let section=	uni.getStorageSync("userCenterSection");
+			let token=uni.getStorageSync('userToken')
 			console .log("这是获取缓存数据",section);
-			section?this.show=section:this.show="login";
+			//先判断section是否存在，
+			if(section){
+				this.show=section
+			} else{
+				if(token){
+					this.show='profile'
+					
+				}else {
+					this.show='login'
+				}
+				
+			};
+			
+			// section?this.show=section:this.show="login";
 			// this.show=section;
 			uni.removeStorageSync("userCenterSection");
 			
