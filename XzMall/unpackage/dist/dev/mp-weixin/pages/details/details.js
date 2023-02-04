@@ -291,7 +291,12 @@ var _service = __webpack_require__(/*! ../../service */ 12);function _interopReq
                 console.log("这是跳转的", result1);
                 _this.product = _objectSpread({}, result1.product);
                 _this.family = _objectSpread({}, result1.family);
-                _this.picList = _objectSpread({}, _this.product.picList);case 11:case "end":return _context.stop();}}}, _callee);}))();
+                _this.picList = _objectSpread({}, _this.product.picList);
+                // 对服务器返回的数据进行预处理，因为details中src没有基础路径，所以要替换成有$base
+                // 1.把this.products.details中的src="img"替换为src="https:web.codebody.com/xuezi/img"
+                _this.product.details = _this.product.details.replace(/src="img/g, "src=\"".concat(_this.$base, "img"));
+                //2.把this.product.details中的<img替换为<img style="width:100%"
+                _this.product.details = _this.product.details.replace(/<img/g, '<img style="width:100%;"');case 13:case "end":return _context.stop();}}}, _callee);}))();
     },
     changeValue: function changeValue(e) {
       console.log("这是数量", e);

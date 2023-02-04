@@ -126,6 +126,11 @@ import { productDetails,base } from '../../service';
 				this.product={...result1.product};
 				this.family={...result1.family};
 				this.picList={...this.product.picList};
+				// 对服务器返回的数据进行预处理，因为details中src没有基础路径，所以要替换成有$base
+				// 1.把this.products.details中的src="img"替换为src="https:web.codebody.com/xuezi/img"
+				this.product.details=this.product.details.replace(/src="img/g,`src="${this.$base}img`);
+				//2.把this.product.details中的<img替换为<img style="width:100%"
+				this.product.details=this.product.details.replace(/<img/g,'<img style="width:100%;"'  );
 			},
 			changeValue(e){
 				console.log("这是数量",e);
